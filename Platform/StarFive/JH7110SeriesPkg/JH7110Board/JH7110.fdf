@@ -153,7 +153,7 @@ INF  EmbeddedPkg/RealTimeClockRuntimeDxe/RealTimeClockRuntimeDxe.inf
 
 # RISC-V Core Drivers
 INF  Platform/StarFive/JH7110SeriesPkg/Universal/Dxe/TimerDxe/TimerDxe.inf
-INF  Silicon/RISC-V/ProcessorPkg/Universal/CpuDxe/CpuDxe.inf
+INF  UefiCpuPkg/CpuDxeRiscV64/CpuDxeRiscV64.inf
 INF  Silicon/RISC-V/ProcessorPkg/Universal/SmbiosDxe/RiscVSmbiosDxe.inf
 
 INF  MdeModulePkg/Universal/FaultTolerantWriteDxe/FaultTolerantWriteDxe.inf
