@@ -6,6 +6,8 @@
 
 **/
 
+#include <Guid/PlatformInfoHob.h>
+
 #ifndef AMPERE_CPU_LIB_H_
 #define AMPERE_CPU_LIB_H_
 
@@ -158,6 +160,50 @@ UINT16
 EFIAPI
 GetNumberOfConfiguredCPMs (
   UINT8 SocketId
+  );
+
+/**
+  Get version of SCP.
+
+  @param[out]   ScpVer   Pointer to contain version of SCP value.
+**/
+VOID
+EFIAPI
+GetScpVersion (
+  UINT8 **ScpVer
+  );
+
+/**
+  Get date of build release for SCP.
+
+  @param[out]   ScpBuild   Pointer to contain date of build release for SCP.
+**/
+VOID
+EFIAPI
+GetScpBuild (
+  UINT8 **ScpBuild
+  );
+
+/**
+  Get information of DIMM List.
+
+  @param[out]   DimmList   Pointer contains information of DIMM List.
+**/
+VOID
+EFIAPI
+GetDimmList (
+  PLATFORM_DIMM_LIST **DimmList
+  );
+
+/**
+  Get information of DRAM.
+
+  @param[out]   DramInfo   Pointer contains information of DRAM.
+**/
+VOID
+EFIAPI
+GetDramInfo (
+  PLATFORM_DRAM_INFO **DramInfo
   );
 
 /**

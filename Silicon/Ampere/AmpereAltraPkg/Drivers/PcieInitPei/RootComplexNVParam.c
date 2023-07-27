@@ -128,6 +128,7 @@ SetRootComplexBifurcation (
     RootComplex->Pcie[RPStart + 3].Active = TRUE;
     break;
 
+  case DevMapModeAuto:
   case DevMapMode4:
     MaxWidth = (RootComplex->Type == RootComplexTypeA) ? LINK_WIDTH_X4 : LINK_WIDTH_X2;
     RootComplex->Pcie[RPStart].MaxWidth = PCIE_GET_MAX_WIDTH (RootComplex->Pcie[RPStart], MaxWidth);
@@ -159,7 +160,7 @@ GetDefaultDevMap (
   UINT8        StartIndex;
   DEV_MAP_MODE DevMapMode;
 
-  DevMapMode = MaxDevMapMode;
+  DevMapMode = DevMapMode4;
   StartIndex = IsGetDevMapLow ? PcieController0 : PcieController4;
 
   while (DevMapMode >= DevMapMode1)
@@ -204,7 +205,9 @@ GetDevMap (
   //
   // Get default Devmap low and configure Devmap low accordingly.
   //
-  RootComplex->DefaultDevMapLow = GetDefaultDevMap (RootComplex, TRUE);
+  if (RootComplex->DefaultDevMapLow != DevMapModeAuto) {
+    RootComplex->DefaultDevMapLow = GetDefaultDevMap (RootComplex, TRUE);
+  }
   if (RootComplex->DevMapLow == 0) {
     RootComplex->DevMapLow = RootComplex->DefaultDevMapLow;
   }
@@ -397,6 +400,14 @@ GetLaneAllocation (
     }
   }
 
+  // Update RootComplex data to handle auto bifurcation mode on RCA
+  if (Value == AUTO_BIFURCATION_SETTING_VALUE) {
+    RootComplex->Pcie[PcieController0].MaxWidth = LINK_WIDTH_X4;
+    RootComplex->Pcie[PcieController0].MaxGen = LINK_SPEED_GEN3;
+    RootComplex->Pcie[PcieController0].Active = TRUE;
+    RootComplex->DefaultDevMapLow = DevMapModeAuto;
+  }
+
   if (RootComplex->Type == RootComplexTypeB) {
     NvParamOffset += NV_PARAM_ENTRYSIZE;
     Status = NVParamGet (NvParamOffset, NV_PERM_ALL, &Value);
@@ -526,6 +537,7 @@ GetMaxSpeedGen (
       }
       break;
 
+    case DevMapModeAuto:
     case DevMapMode4: /* x4 x4 x4 x4 */
       if (RootComplex->Flags & PCIE_ERRATA_SPEED1) {
         MaxGen = ErrataSpeedDevMap4;

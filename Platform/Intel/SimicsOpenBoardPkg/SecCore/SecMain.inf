@@ -62,12 +62,12 @@
   gSimicsOpenBoardPkgTokenSpaceGuid.PcdSimicsPeiMemFvSize
   gSimicsOpenBoardPkgTokenSpaceGuid.PcdSimicsDxeMemFvBase
   gSimicsOpenBoardPkgTokenSpaceGuid.PcdSimicsDxeMemFvSize
-  gSimicsOpenBoardPkgTokenSpaceGuid.PcdSimicsSecPageTablesBase
   gSimicsOpenBoardPkgTokenSpaceGuid.PcdSimicsSecPeiTempRamBase
   gSimicsOpenBoardPkgTokenSpaceGuid.PcdSimicsSecPeiTempRamSize
   gEfiMdePkgTokenSpaceGuid.PcdGuidedExtractHandlerTableAddress
   gSimicsOpenBoardPkgTokenSpaceGuid.PcdGuidedExtractHandlerTableSize
   gSimicsOpenBoardPkgTokenSpaceGuid.PcdSimicsDecompressionScratchEnd
+  gEfiMdeModulePkgTokenSpaceGuid.PcdInitValueInTempStack
 
 [FeaturePcd]
   gSimicsX58PkgTokenSpaceGuid.PcdSmmSmramRequire

@@ -106,6 +106,7 @@
   LocalApicLib|UefiCpuPkg/Library/BaseXApicX2ApicLib/BaseXApicX2ApicLib.inf
   SmmCpuFeaturesLib|UefiCpuPkg/Library/SmmCpuFeaturesLib/SmmCpuFeaturesLib.inf
   MicrocodeLib|UefiCpuPkg/Library/MicrocodeLib/MicrocodeLib.inf
+  CpuPageTableLib|UefiCpuPkg/Library/CpuPageTableLib/CpuPageTableLib.inf
 
   #
   # Platform
@@ -147,6 +148,7 @@
   BmpSupportLib|MdeModulePkg/Library/BaseBmpSupportLib/BaseBmpSupportLib.inf
   LargeVariableReadLib|MinPlatformPkg/Library/BaseLargeVariableLib/BaseLargeVariableReadLib.inf
   LargeVariableWriteLib|MinPlatformPkg/Library/BaseLargeVariableLib/BaseLargeVariableWriteLib.inf
+  CompressLib|MinPlatformPkg/Library/CompressLib/CompressLib.inf
 
   #
   # CryptLib

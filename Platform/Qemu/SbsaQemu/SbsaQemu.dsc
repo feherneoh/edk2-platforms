@@ -406,12 +406,6 @@ DEFINE NETWORK_HTTP_BOOT_ENABLE       = FALSE
   # Size of the region used by UEFI in permanent memory (Reserved 64MB)
   gArmPlatformTokenSpaceGuid.PcdSystemMemoryUefiRegionSize|0x04000000
 
-  #
-  # ARM General Interrupt Controller
-  #
-  gArmTokenSpaceGuid.PcdGicDistributorBase|0x40060000
-  gArmTokenSpaceGuid.PcdGicRedistributorsBase|0x40080000
-
   ## Default Terminal Type
   ## 0-PCANSI, 1-VT100, 2-VT00+, 3-UTF8, 4-TTYTERM
   gEfiMdePkgTokenSpaceGuid.PcdDefaultTerminalType|4
@@ -524,6 +518,12 @@ DEFINE NETWORK_HTTP_BOOT_ENABLE       = FALSE
   gArmTokenSpaceGuid.PcdSystemMemorySize|0x08000000
 
   #
+  # ARM General Interrupt Controller
+  #
+  gArmTokenSpaceGuid.PcdGicDistributorBase|0x40060000
+  gArmTokenSpaceGuid.PcdGicRedistributorsBase|0x40080000
+
+  #
   # Set video resolution for boot options
   # PlatformDxe can set the former at runtime.
   #
@@ -557,6 +557,9 @@ DEFINE NETWORK_HTTP_BOOT_ENABLE       = FALSE
   gArmVirtSbsaQemuPlatformTokenSpaceGuid.PcdChassisManufacturer|L"QEMU"
   gArmVirtSbsaQemuPlatformTokenSpaceGuid.PcdChassisAssetTag|L"AT0000"
   gArmVirtSbsaQemuPlatformTokenSpaceGuid.PcdChassisSKU|L"SK0000"
+
+  gArmVirtSbsaQemuPlatformTokenSpaceGuid.PcdPlatformVersionMajor|0x0
+  gArmVirtSbsaQemuPlatformTokenSpaceGuid.PcdPlatformVersionMinor|0x0
 
 ################################################################################
 #
@@ -705,7 +708,7 @@ DEFINE NETWORK_HTTP_BOOT_ENABLE       = FALSE
   MdeModulePkg/Bus/Pci/NonDiscoverablePciDeviceDxe/NonDiscoverablePciDeviceDxe.inf
 
   # IDE/AHCI Support
-  OvmfPkg/SataControllerDxe/SataControllerDxe.inf
+  MdeModulePkg/Bus/Pci/SataControllerDxe/SataControllerDxe.inf
   MdeModulePkg/Bus/Ata/AtaAtapiPassThru/AtaAtapiPassThru.inf
   MdeModulePkg/Bus/Ata/AtaBusDxe/AtaBusDxe.inf
 

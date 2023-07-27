@@ -28,6 +28,23 @@
   gMinPlatformPkgTokenSpaceGuid.PcdUefiSecureBootEnable                   |FALSE
   gMinPlatformPkgTokenSpaceGuid.PcdPerformanceEnable                      |FALSE
 
+  #
+  # Manageability modules
+  #
+  gManageabilityPkgTokenSpaceGuid.PcdManageabilityDxeIpmiEnable              |TRUE
+  gManageabilityPkgTokenSpaceGuid.PcdManageabilitySmmIpmiEnable              |TRUE
+  gManageabilityPkgTokenSpaceGuid.PcdManageabilityPeiIpmiEnable              |TRUE
+  gManageabilityPkgTokenSpaceGuid.PcdManageabilityDxePldmEnable              |TRUE
+  gManageabilityPkgTokenSpaceGuid.PcdManageabilityDxeMctpEnable              |TRUE
+  gManageabilityPkgTokenSpaceGuid.PcdManageabilityDxePldmSmbiosTransferEnable|TRUE
+  gManageabilityPkgTokenSpaceGuid.PcdManageabilityDxeIpmiFru                 |TRUE
+  gManageabilityPkgTokenSpaceGuid.PcdManageabilityDxeIpmiOsWdt               |TRUE
+  gManageabilityPkgTokenSpaceGuid.PcdManageabilityDxeIpmiSolStatus           |TRUE
+  gManageabilityPkgTokenSpaceGuid.PcdManageabilityDxeIpmiBmcElog             |TRUE
+  gManageabilityPkgTokenSpaceGuid.PcdManageabilityDxeIpmiFrb                 |TRUE
+  gManageabilityPkgTokenSpaceGuid.PcdManageabilityPeiIpmiFrb                 |TRUE
+  gManageabilityPkgTokenSpaceGuid.PcdManageabilityDxeIpmiBmcAcpi             |TRUE
+
 #
 # Include common libraries
 #
@@ -37,8 +54,12 @@
 
 [Components]
   ManageabilityPkg/Library/ManageabilityTransportKcsLib/Dxe/DxeManageabilityTransportKcs.inf
+  ManageabilityPkg/Library/ManageabilityTransportMctpLib/Dxe/DxeManageabilityTransportMctp.inf
+  ManageabilityPkg/Library/PldmProtocolLibrary/Dxe/PldmProtocolLib.inf
+  ManageabilityPkg/Library/IpmiCommandLib/IpmiCommandLib.inf
 
 [LibraryClasses]
   ManageabilityTransportLib|ManageabilityPkg/Library/BaseManageabilityTransportNullLib/BaseManageabilityTransportNull.inf
+  IpmiLib|MdeModulePkg/Library/BaseIpmiLibNull/BaseIpmiLibNull.inf
 
-!include Include/Dsc/Manageability.dsc
+!include Include/Manageability.dsc
