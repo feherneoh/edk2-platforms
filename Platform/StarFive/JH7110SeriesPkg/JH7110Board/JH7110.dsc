@@ -495,7 +495,7 @@
   #
   # RISC-V Platform module
   #
-  Platform/StarFive/JH7110SeriesPkg/Universal/Dxe/TimerDxe/TimerDxe.inf
+  UefiCpuPkg/CpuTimerDxeRiscV64/CpuTimerDxeRiscV64.inf
   #Platform/StarFive/JH7110SeriesPkg/Universal/Dxe/RamFvbServicesRuntimeDxe/FvbServicesRuntimeDxe.inf
 
   #
